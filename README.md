@@ -33,7 +33,8 @@ small; **accepted shares are not earnings**.
 ## Install
 
 ```sh
-brew install --cask s3mng/tap/stoneaxe
+brew tap s3mng/stoneaxe https://github.com/s3mng/stoneaxe
+brew install --cask s3mng/stoneaxe/stoneaxe
 ```
 
 Stoneaxe is currently ad-hoc signed and not notarized. macOS may block the first

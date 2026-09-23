@@ -26,7 +26,8 @@ macOS 네이티브 앱입니다. 수신 주소를 저장하면 메뉴 막대의 
 ## 설치
 
 ```sh
-brew install --cask s3mng/tap/stoneaxe
+brew tap s3mng/stoneaxe https://github.com/s3mng/stoneaxe
+brew install --cask s3mng/stoneaxe/stoneaxe
 ```
 
 현재 Stoneaxe는 임시 서명(ad-hoc)을 사용하며 Apple 공증을 받지 않았습니다.

@@ -9,6 +9,7 @@
 | `Sources/Stoneaxe/Resources/Mining.metal` | SHA-256d kernel |
 | `Tests/` | Bitcoin vectors, policy and engine regression tests |
 | `Packaging/` | App metadata, icon, and cask template |
+| `Casks/` | Homebrew cask published from this repository |
 | `scripts/` | Build, artwork, signing, notarization, and cask generation |
 
 ## Build and verify
@@ -42,8 +43,9 @@ Normal builds use the checked-in icon without regenerating it.
 
 ## Releases and Homebrew
 
-Release ZIPs are hosted in [s3mng/stoneaxe](https://github.com/s3mng/stoneaxe).
-The cask lives in [s3mng/homebrew-tap](https://github.com/s3mng/homebrew-tap).
+Release ZIPs and the custom tap cask are both hosted in
+[s3mng/stoneaxe](https://github.com/s3mng/stoneaxe). Because the repository name
+does not use Homebrew's `homebrew-` prefix, users add it with an explicit URL.
 
 1. Update version/build numbers in `Packaging/Info.plist` and test on real hardware.
 2. Provide a **Developer ID Application** identity and notarization keychain profile:
@@ -60,8 +62,8 @@ The cask lives in [s3mng/homebrew-tap](https://github.com/s3mng/homebrew-tap).
      dist/Stoneaxe-0.1.0-arm64.zip dist/stoneaxe.rb 0.1.0
    ```
 
-4. Publish the ZIP in GitHub Release `v0.1.0`, copy the cask to
-   `Casks/stoneaxe.rb` in the tap, and verify installation on a clean Mac.
+4. Publish the ZIP in GitHub Release `v0.1.0`, copy the generated cask to
+   `Casks/stoneaxe.rb` in this repository, and verify installation on a clean Mac.
 
 The first release is ad-hoc signed and warns on first launch. A future Developer
 ID Application signature and notarization can remove that warning. An Apple
@@ -71,7 +73,7 @@ Development certificate does not replace Developer ID Application.
 
 CI runs tests and builds an ad-hoc-signed app. The manual signed-release workflow
 creates a **draft release** containing a notarized ZIP and generated cask. It does
-not publish the draft or update the separate tap.
+not publish the draft or commit the cask to `Casks/`.
 
 Configure these secrets in the `release` environment:
 
