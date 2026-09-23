@@ -1,0 +1,20 @@
+name: Build and test
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  macos:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test Bitcoin primitives and scheduling
+        run: swift test
+      - name: Package Apple Silicon app
+        run: bash scripts/build-app.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Stoneaxe-arm64-unsigned
+          path: dist/Stoneaxe.app
+      # Hosted VMs do not guarantee Metal GPU access. Run --self-test on real hardware.
