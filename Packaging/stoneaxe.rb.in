@@ -1,16 +1,22 @@
-# Release template: replace REPOSITORY and SHA256 after a signed release exists.
 cask "stoneaxe" do
   version "0.1.0"
   sha256 "SHA256"
 
   url "https://github.com/REPOSITORY/releases/download/v#{version}/Stoneaxe-#{version}-arm64.zip"
   name "Stoneaxe"
-  desc "A tiny adaptive Bitcoin solo miner for the macOS menu bar"
+  desc "Adaptive Bitcoin solo miner for the macOS menu bar"
   homepage "https://github.com/REPOSITORY"
 
   depends_on arch: :arm64
   depends_on macos: ">= :sonoma"
+
   app "Stoneaxe.app"
+
+  caveats <<~EOS
+    Stoneaxe is currently ad-hoc signed and not notarized. If macOS blocks its
+    first launch, open Applications in Finder, Control-click Stoneaxe, choose
+    Open, then confirm Open. This creates an exception only for Stoneaxe.
+  EOS
 
   zap trash: [
     "~/Library/Application Support/Stoneaxe",

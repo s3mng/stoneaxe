@@ -32,16 +32,15 @@ small; **accepted shares are not earnings**.
 
 ## Install
 
-**Early development:** there is no published binary release or installable
-Homebrew cask yet. Build from source to try the current version.
-
-The [Homebrew tap](https://github.com/s3mng/homebrew-tap) has been created.
-After a signed, notarized release and its cask are published, installation will be:
-
 ```sh
-# Planned installation — not available yet
 brew install --cask s3mng/tap/stoneaxe
 ```
+
+Stoneaxe is currently ad-hoc signed and not notarized. macOS may block the first
+launch. If it does, open **Applications** in Finder, Control-click **Stoneaxe**,
+choose **Open**, then confirm **Open**. This exception applies only to Stoneaxe.
+
+Requires Apple Silicon and macOS 14 or later.
 
 ### Build from source
 
@@ -150,12 +149,3 @@ GPU. The same test gates mining at launch. Hosted CI may not expose a GPU.
 Stoneaxe uses SwiftUI/AppKit, Network.framework, Metal, and CryptoKit. See the
 [development guide](docs/DEVELOPMENT.md) for source layout, artwork generation,
 validation, and the release/Homebrew workflow.
-
-## Contributing
-
-Bug reports and focused pull requests are welcome. Include your macOS version,
-chip model, reproduction steps, and relevant logs. For performance issues, include
-the scheduling budgets and power source. Remove personal data from attachments.
-
-Prioritize correctness and responsiveness. Hashing, byte-order, target-math, and
-scheduling changes should include appropriate regression tests.

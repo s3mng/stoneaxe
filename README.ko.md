@@ -25,16 +25,15 @@ macOS 네이티브 앱입니다. 수신 주소를 저장하면 메뉴 막대의 
 
 ## 설치
 
-**초기 개발 단계입니다.** 공개 바이너리 릴리스와 설치 가능한 Homebrew cask는
-아직 없습니다. 현재 버전은 소스에서 빌드할 수 있습니다.
-
-[tap 저장소](https://github.com/s3mng/homebrew-tap)는 생성되어 있습니다.
-서명·공증된 릴리스와 cask 게시 후 아래 명령으로 설치할 예정입니다.
-
 ```sh
-# 아직 사용할 수 없는 예정 설치 명령입니다
 brew install --cask s3mng/tap/stoneaxe
 ```
+
+현재 Stoneaxe는 임시 서명(ad-hoc)을 사용하며 Apple 공증을 받지 않았습니다.
+macOS가 최초 실행을 막으면 Finder에서 **응용 프로그램**을 열고 **Stoneaxe**를
+Control-클릭한 뒤 **열기**, 다시 **열기**를 선택하세요. 이 예외는 Stoneaxe에만 적용됩니다.
+
+Apple Silicon과 macOS 14 이상이 필요합니다.
 
 ### 소스에서 빌드
 
@@ -122,7 +121,7 @@ share를 제출하지 않습니다. 기존 채굴은 유지됩니다. 실제 sha
 파일은 영문, 화면은 선택한 언어로 표시합니다. 통계는 90일간의 일별 요약과
 전체 누적값을 저장합니다. **내보내기에는 블록 기록의 주소가 포함될 수 있으니** 공유 전에 확인하세요.
 
-## 개발 및 기여
+## 개발
 
 ```sh
 swift test
@@ -132,6 +131,4 @@ dist/Stoneaxe.app/Contents/MacOS/Stoneaxe --self-test
 GPU 자체 검증은 네트워크 접속 없이 제네시스 블록과 합성 작업을 CPU 결과와
 비교합니다. 실제 Apple Silicon GPU가 필요하며 앱 시작 시에도 검증합니다.
 
-구조·아이콘 생성·검증·Homebrew 배포는 [개발 가이드](docs/DEVELOPMENT.md)를 참고하세요.
-문제 제보에는 macOS 버전, 칩 모델, 재현 방법과 로그를 포함해 주세요.
-성능 문제에는 설정 예산과 배터리 여부도 도움이 됩니다. 공유 전 개인정보를 제거해 주세요.
+구조·아이콘 생성·검증·Homebrew 배포 과정은 [개발 가이드](docs/DEVELOPMENT.md)를 참고하세요.
